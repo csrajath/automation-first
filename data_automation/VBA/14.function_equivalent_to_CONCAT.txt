@@ -1,0 +1,16 @@
+Public Function ConcatMe(Rng As Range) As String
+Dim cl As Range
+   ConcatMe = ""
+   For Each cl In Rng
+      ConcatMe = ConcatMe & cl.Text
+   Next cl
+End Function
+
+
+'USE CASE
+	'while/to concatinate a range of values
+
+'STEPS
+	'open VBA and insert new module
+	'paste the above function
+	'use it as function on excel worksheet

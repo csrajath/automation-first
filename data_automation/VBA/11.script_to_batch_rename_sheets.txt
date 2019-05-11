@@ -1,0 +1,10 @@
+    Sub ArrayEx()
+    Dim varShts
+    Dim varSht
+    Dim strArray()
+    strArray = Array("hep", "hey", "heppa!")
+    Set varShts = Sheets(Array("Sheet1", "Sheet2", "Sheet3"))
+    For varSht = 1 To varShts.Count
+        varShts(varSht).Name = strArray(varSht - 1)
+    Next
+    End Sub

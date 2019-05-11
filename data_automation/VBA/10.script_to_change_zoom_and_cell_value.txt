@@ -1,0 +1,23 @@
+
+Sub SetZoom_And_Select_A1_Activeworkbook()
+    Dim ws As Worksheet
+	Dim tb As Worksheet
+	
+    For Each ws In Worksheets
+        ws.Select
+        ActiveWindow.Zoom = 100
+        Next ws
+    
+	For Each tb In ActiveWorkbook.Sheets
+		tb.Activate
+		tb.[a1].Select
+		Next tb
+		ActiveWorkbook.Worksheets(1).Activate
+
+End Sub
+
+
+        
+        
+
+        

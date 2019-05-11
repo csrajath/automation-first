@@ -1,0 +1,39 @@
+Sub Consolidate()
+
+Dim wkbkorigin As Workbook
+Dim originsheet As Worksheet
+Dim destsheet As Worksheet
+Dim ResultRow As Long
+Dim Fname As String
+Dim RngDest As Range
+
+
+    Set destsheet = ThisWorkbook.Worksheets("Sheet1")
+    Set RngDest = destsheet.Cells(Rows.Count, 1).End(xlUp) _
+                       .Offset(1, 0).EntireRow
+    Fname = Dir(ThisWorkbook.Path & "/*.xlsx")
+
+    'loop through each file in folder (excluding this one)
+    Do While Fname <> "" And Fname <> ThisWorkbook.Name
+
+        If Fname <> ThisWorkbook.Name Then
+
+            Set wkbkorigin = Workbooks.Open(ThisWorkbook.Path & "/" & Fname)
+            Set originsheet = wkbkorigin.Worksheets("Sheet1")
+
+            With RngDest
+                .Cells(1).Value = originsheet.Range("E9").Value
+                .Cells(2).Value = originsheet.Range("D18").Value
+                .Cells(3).Value = originsheet.Range("D22").Value
+                .Cells(4).Value = originsheet.Range("E11").Value
+                .Cells(5).Value = originsheet.Range("F27").Value
+            End With
+
+            wkbkorigin.Close SaveChanges:=False   'close current file
+            Set RngDest = RngDest.Offset(1, 0)
+
+        End If
+
+        Fname = Dir()     'get next file
+    Loop
+End Sub

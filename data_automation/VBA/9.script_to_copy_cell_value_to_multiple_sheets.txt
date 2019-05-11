@@ -1,0 +1,8 @@
+Sub TEST()
+Dim sht As Worksheet
+Sheets("Home").Range("A1:P1").Copy
+For Each sht In Worksheets
+sht.Range("H16").PasteSpecial xlPasteValues
+Next
+Application.CutCopyMode = False
+End Sub

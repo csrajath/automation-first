@@ -1,0 +1,13 @@
+//replace the string with the tab names
+Sub MoveorCopy()
+Worksheets(Array("")).Copy
+With ActiveWorkbook
+     .SaveAs Filename:=Environ("TEMP") & "\New3.xlsx", FileFormat:=xlOpenXMLWorkbook 
+     .Close SaveChanges:=False 
+End With 
+End Sub
+
+
+
+
+

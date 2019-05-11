@@ -1,0 +1,50 @@
+Sub Macro2()
+'
+' Macro2 Macro
+'
+
+'
+    Columns("A:A").Select
+    ActiveSheet.Range("$A$1:$J$1048576").RemoveDuplicates Columns:=1, Header:= _
+        xlYes
+    Columns("A:A").Select
+    Selection.Copy
+    Sheets("Report").Select
+    Range("A1").Select
+    ActiveSheet.Paste
+    Range("A1").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "PEAR"
+    Sheets("csv").Select
+    Columns("D:D").Select
+    ActiveSheet.Range("$A$1:$W$1048576").RemoveDuplicates Columns:=4, Header:= _
+        xlYes
+    Columns("D:D").Select
+    Selection.Copy
+    Sheets("Report").Select
+    Columns("C:C").Select
+    ActiveSheet.Paste
+    Range("B1").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "Found?"
+    Cells.Select
+    Cells.EntireColumn.AutoFit
+    Range("A1:C1").Select
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 6299648
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+    With Selection.Font
+        .ThemeColor = xlThemeColorDark1
+        .TintAndShade = 0
+    End With
+    Selection.Font.Bold = False
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-1],C3,1,0)"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "AA"
+    Range("B2").Select
+End Sub

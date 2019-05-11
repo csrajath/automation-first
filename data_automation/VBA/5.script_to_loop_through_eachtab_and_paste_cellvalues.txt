@@ -1,0 +1,23 @@
+Sub loop_workbooks_for_loop()
+
+Dim i As Integer
+Dim ws_num As Integer
+
+Dim starting_ws As Worksheet
+Set starting_ws = ActiveSheet 'remember which worksheet is active in the beginning
+ws_num = ThisWorkbook.Worksheets.Count
+
+For i = 1 To ws_num
+    ThisWorkbook.Worksheets(i).Activate
+    'do whatever you need
+    ThisWorkbook.Worksheets(i).Cells(1, 1) = ""
+    ThisWorkbook.Worksheets(i).Cells(8, 1) = ""
+    Range("A1").Font.Bold = True
+    Range("A1").Font.Color = vbRed
+    Range("A8").Font.Bold = True
+    Range("A8").Font.Color = vbRed
+Next
+
+starting_ws.Activate 'activate the worksheet that was originally active
+
+End Sub

@@ -1,0 +1,6 @@
+Sub nameShts()
+Dim i As Integer
+For i = 1 To Worksheets.Count
+Worksheets(i).Name = "#" & i
+Next i
+End Sub

@@ -1,0 +1,8 @@
+Sub insert_rows()
+    Dim xWs As Worksheet
+    Set xWs = ActiveSheet
+    ThisWorkbook.Worksheets.Select
+    Rows("2:3").Select
+    Selection.Insert
+    xWs.Select
+End Sub

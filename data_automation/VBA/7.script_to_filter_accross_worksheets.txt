@@ -1,0 +1,8 @@
+Sub apply_autofilter_across_worksheets()
+'Updateby Extendoffice 20160623
+    Dim xWs As Worksheet
+    On Error Resume Next
+    For Each xWs In Worksheets
+        xWs.Range("B1").AutoFilter 2, "=#N/A"
+    Next
+End Sub
